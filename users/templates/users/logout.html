@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block main %}
+<div class="container">
+
+    <h2>Você saiu do nosso sistema...</h2>
+
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Não fique fora dessa diversão!! <a href="{% url 'login' %}">Entre já!</a>
+        </small>
+    </div>
+
+</div>
+
+
+{% endblock %}

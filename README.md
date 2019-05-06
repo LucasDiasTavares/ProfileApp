@@ -42,6 +42,7 @@ def register(request):
 ```
 
 -  Pois com esse trecho de código que faz a mágica acontecer.
+
 ```python
 {% if messages %}
         {% for message in messages %}
@@ -49,5 +50,21 @@ def register(request):
                 {{ message }}
             </div>
         {% endfor %}
-    {% endif %}```
+    {% endif %}
+```
 
+### Adicionando views de login e logout
+
+```python
+	path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name="login"),
+    path('logout/', auth_views.LogoutView.as_view(template_name='users/login.html'), name='logout'),
+```
+**IMPORTANTE** Estas duas rotas são CBV por isso eu consigo passar o template_name direto dentro delas sem ter que criar uma classe para dar override nela.
+
+Agora vou até o meu settings.py e nele devo adicionar uma variavel que será, quando a pessoa logar ela devera ir para está página, por padrão do Django vai para accounts/profile.
+
+- ##### LOGIN_REDIRECT_URL = 'home'
+- Onde 'home' é o nome da minha url que eu quero que a pessoa seja redirecionada.
+
+- ##### LOGIN_URL = 'login'
+-  Está variavel faz com que se eu entar acessar uma pagina com @login_required ela me redireciona para a pagina de login

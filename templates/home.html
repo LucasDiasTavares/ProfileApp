@@ -11,18 +11,6 @@
         <h3>Home Page Simples</h3>
     </div>
 
-
-    <div class="col-md-3">
-          <!-- Login/Logout -->
-        {% if user.is_authenticated %}
-            <p>Olá {{ user.username }} </p>
-            <a type="button" class="btn btn-outline-secondary" href="#">Sair</a>
-            <a type="button" href="#">Alterar Senha</a>
-        {% else %}
-            <a type="button" class="btn btn-outline-success" href="#">Entrar</a>
-        {% endif %}
-    </div>
-
   </div>
 
 {% endblock main %}
