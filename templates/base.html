@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href=" {% static 'style.css' %} ">
+    {% block link %}{% endblock link %}
+    {% block head %}{% endblock head %}
+    {% block style %}{% endblock style %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+{% block navbar %}
+{% endblock navbar %}
+
+<div class="container">
+
+    {% if messages %}
+        {% for message in messages %}
+            <div {% if message.tags %} class="alert mt-3 alert-{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block main %}
+    {% endblock main %}
+</div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% block script %}{%endblock script%}
+</html>
